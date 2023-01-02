@@ -25,7 +25,6 @@
         <button href="#experiences">Experience</button>
         <button href="contact">Contact</button>
       </div>
-      <!-- <a href=""></a> -->
 
       <div class="main-page">
         <lottie-player
@@ -212,6 +211,11 @@
         <h2>Contact me</h2>
         <form>
           <div class="field">
+            <label for="">Full name</label>
+            <input type="text" placeholder="Julio Anibal Ramos" />
+          </div>
+
+          <div class="field">
             <label for="">Phone</label>
             <input type="text" placeholder="989 878 188" />
           </div>
@@ -223,7 +227,7 @@
               id=""
               cols="auto"
               rows="3"
-              placeholder="I'm interested in your angular skills, i'd like you work as web frontend developer."
+              placeholder="I'm interested in your angular skills, I'd like you work as web frontend developer."
             ></textarea>
           </div>
 
@@ -235,7 +239,49 @@
         <p>copyright © 2022 by David Perales</p>
       </div>
     </div>
+
+    <!-- <form id="contact-form">
+      <input type="hidden" name="to_name" />
+      <label>Name</label>
+      <input type="text" name="from_name" />
+      <label>Email</label>
+      <input type="text" name="phone" />
+      <label>Message</label>
+      <textarea name="message"></textarea>
+      <input type="submit" value="Send" />
+    </form> -->
+
     <script src="./js/main.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init("51xZrYYpW375K__1p");
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            // set to_name value
+            this.to_name.value = "David";
+            // these IDs from the previous steps
+            emailjs.sendForm("service_hqsq29o", "template_v2dnlmi", this).then(
+              function () {
+                console.log("SUCCESS!");
+              },
+              function (error) {
+                console.log("FAILED...", error);
+              }
+            );
+          });
+      };
+    </script>
   </body>
 </html>
