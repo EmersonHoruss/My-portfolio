@@ -12,185 +12,40 @@ $responsive-5: 1920px;
 }
 
 body {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  height: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
   background-color: rgb(241, 245, 249);
 }
 
-.experiences {
+$title-page-height: 4rem;
+$navigation-page-height: 4rem;
+$title-navigation-page-height: $title-page-height + $navigation-page-height;
+$body-page-height: calc(100vh - $title-navigation-page-height);
+
+.my-portfolio {
   width: 100%;
-  margin: 3rem 0;
+  height: 100%;
+  background-color: blue;
+  display: grid;
+  grid-template-areas:
+    "title"
+    "body"
+    "navigation";
+  grid-template-rows: $title-page-height $body-page-height $navigation-page-height;
 }
 
-.cards {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-
-  .card {
-    width: 95%;
-    background-color: red;
-    border-radius: 0.8rem;
-    flex-grow: 1;
-    .header {
-      width: 100%;
-      border-top-left-radius: inherit;
-      border-top-right-radius: inherit;
-    }
-
-    .content {
-      margin: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-
-  @media only screen and (min-width: $responsive-1) {
-    .card {
-      width: 85%;
-    }
-  }
-
-  @media only screen and (min-width: $responsive-2) {
-    .card {
-      width: 40%;
-    }
-  }
-
-  @media only screen and (min-width: $responsive-3) {
-    .card {
-      width: 25%;
-    }
-  }
-
-  @media only screen and (min-width: $responsive-4) {
-    .card {
-      width: 20%;
-    }
-  }
-
-  @media only screen and (min-width: $responsive-5) {
-    .card {
-      width: 10%;
-    }
-  }
+.my-portfolio-title-page {
+  grid-area: title;
+  background-color: red;
 }
 
-// .my-portfolio {
-//     .nav {
-//         width: 100%;
-//         background-color: rgb(15, 23, 42);
-//         height: $height-nav;
-//         display: flex;
-//         justify-content: center;
-//     }
+.my-portfolio-body-page {
+  grid-area: body;
+  background-color: yellow;
+  overflow: scroll;
+}
 
-//     .main-page {
-//         width: 100%;
-//         height: calc(100vh - $height-nav);
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//     }
-
-//     .experiences {
-//         width: 100%;
-//         .options {
-//             width: inherit;
-//             display: flex;
-//         }
-
-//         .content {
-//             display: flex;
-//             gap: 1rem;
-//             flex-wrap: wrap;
-//             width: 100%;
-//             padding: 0 1rem;
-
-//             .card {
-//                 width: 10%;
-//                 flex-grow: 1;
-//                 background-color: white;
-//                 border-radius: 0.5rem;
-//                 max-width: 20rem;
-
-//                 img {
-//                     width: 100%;
-//                     height: 100%;
-//                     border-top-left-radius: 0.5rem;
-//                     border-top-right-radius: 0.5rem;
-//                 }
-
-//                 .content {
-//                     padding: 1rem;
-//                 }
-//             }
-//         }
-//     }
-
-//     .contact {
-//         width: 100%;
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         gap: 2rem;
-
-//         form {
-//             display: flex;
-//             flex-direction: column;
-//             width: 300px;
-//             gap: 1.5rem;
-
-//             .field {
-//                 display: flex;
-//                 flex-direction: column;
-
-//                 gap: 0.3rem;
-
-//                 input,
-//                 textarea {
-//                     border-radius: 0.5rem;
-//                     background-color: transparent;
-//                     padding: 0.5rem;
-//                     line-height: 1.3rem;
-//                 }
-//             }
-//         }
-//     }
-
-//     .footer{
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         background-color: white;
-//         height: 3rem;
-//     }
-
-//     button, .button {
-//         background-color: transparent;
-//         border: 0;
-//         padding: 1rem;
-//         font-size: 1rem;
-//         border-radius: 0.2rem;
-//         color: #94a3b8;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-
-//         svg {
-//             margin-right: 0.5rem;
-//         }
-//     }
-
-//     button:hover {
-//         background-color: #94a3b8;
-//         color: white;
-//     }
-// }
+.my-portfolio-navigation-page {
+  grid-area: navigation;
+  background-color: black;
+}
