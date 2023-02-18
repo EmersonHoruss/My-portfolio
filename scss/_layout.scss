@@ -1,0 +1,39 @@
+@use "./variables/responsive";
+$title-page-height: 4rem;
+$navigation-page-height: 4rem;
+$title-navigation-page-height: $title-page-height + $navigation-page-height;
+$body-page-height: calc(100vh - $title-navigation-page-height);
+
+.my-portfolio {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  display: grid;
+  grid-template-areas:
+    "title"
+    "body"
+    "navigation";
+  grid-template-rows: $title-page-height $body-page-height $navigation-page-height;
+}
+
+.my-portfolio-title-page {
+  grid-area: title;
+  background-color: red;
+}
+
+.my-portfolio-body-page {
+  grid-area: body;
+  background-color: yellow;
+  overflow: scroll;
+}
+
+.my-portfolio-navigation-page {
+  grid-area: navigation;
+  background-color: white;
+}
+
+@media only screen and (min-width: $responsive-2) {
+  .my-portfolio-title-page {
+    background-color: black;
+  }
+}
